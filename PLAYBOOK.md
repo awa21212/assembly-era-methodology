@@ -1,7 +1,7 @@
 # PLAYBOOK：自用操作手册
 
 > 这份是给「今天就要动手」的人看的，全是能直接抄的东西。
-> 方法论在 [README.md](README.md)。
+> 方法论在 [README.md](README.md)；整条流水线的形状在 [AGENTIC_WORKFLOW.md](AGENTIC_WORKFLOW.md)。
 > 如果两台机器连不上、或者你手上只有一部手机，**先看第 1 节**。
 
 ---
