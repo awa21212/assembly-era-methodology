@@ -172,7 +172,7 @@ QQ / 微信 发给自己（文件传输助手也行）
 > 这是 [AGENTIC_WORKFLOW.md](AGENTIC_WORKFLOW.md) 第一节「记忆蒸馏」的**落地版**。
 > 不猜 token、不接管会话，只在你要换窗口之前，逼你把该传的东西写下来。
 
-**脚本**：`量化回测\handoff.py`（零依赖，200 行）
+**脚本**：`handoff.py`（工作区根目录）（零依赖，200 行）
 
 ```bash
 python handoff.py note --tokens 118000 --window 128000   # 记一次用量
