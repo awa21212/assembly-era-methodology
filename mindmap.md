@@ -1,3 +1,5 @@
+> **Note:** this file keeps the original Chinese working notes. The main README and PLAYBOOK are in English.
+
 # 思维导图（纯文本版）
 
 > 备用版：GitHub README 里的 Mermaid 图若在你的客户端没渲染，看这一份。
