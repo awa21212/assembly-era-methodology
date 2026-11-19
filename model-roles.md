@@ -1,3 +1,5 @@
+> **Note:** this file keeps the original Chinese working notes. The main README and PLAYBOOK are in English.
+
 # 模型岗位表：谁该干什么
 
 > 总有人以为「一个 AI 可以干所有事」。实际上不同模型的**能力形态**完全不同：
