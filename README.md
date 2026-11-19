@@ -1,148 +1,146 @@
-# 多智能体协作 SOP
+# Multi-agent collaboration SOP
 
-> 心法：人类不当底层搬砖工——人类是**提问者、路由者、按快门的人**。
+> Core idea: humans are not the workers at the bottom — humans are **the asker, the router, and the one who presses the shutter**.
 
-> 三层结构：**为什么**（本文）→ **整条流水线的形状**（[AGENTIC_WORKFLOW.md](AGENTIC_WORKFLOW.md)）→ **每一步怎么做**（[PLAYBOOK.md](PLAYBOOK.md)）。
+> Three layers: **why** (this file) → **the shape of the pipeline** ([AGENTIC_WORKFLOW.md](AGENTIC_WORKFLOW.md)) → **how to do each step** ([PLAYBOOK.md](PLAYBOOK.md)).
 
-## 土法炼钢：先炼出一块铁，再谈高炉
+## Backyard steelmaking: pour one ingot before you talk about a blast furnace
 
-**大厂在炼钢，我们在土法炼钢。** 土炉炼出来的钢不好看，但它能打出一把能用的刀。
+**Big companies run blast furnaces. We run a backyard furnace.** The steel looks bad, but it makes a knife that cuts.
 
-很多人卡在配置上：装框架、配 API、开三个窗口……然后就卡住了，一天没跑。**别等设备。**
+Most people get stuck at setup: install a framework, configure an API, open three windows… and lose the day. **Do not wait for equipment.**
 
-最低配置其实是：**手机上一个能看图的 App（DeepSeek 都行）+ 电脑上一个 agent。**
+The minimum viable rig is: **one app on your phone that can read images + one agent on your computer.**
 
-**你不需要三个 AI 才能吵架。** 不同厂商、不同训练数据，这俩已经是两套世界观。
+**You do not need three AIs to have an argument.** Different vendors, different training data — those two already are two worldviews.
 
-土法有三个别人不肯承认的好处：
+The backyard approach has three advantages nobody likes to admit:
 
-- **零基建成本**：不用写一行 Python 去串联 API，不用配环境，不用防断网。
-- **人脑就是最强的总线**：眼睛和脑子能在 0.1 秒里完成两个模型之间的「语义对齐」和「过滤」——比任何代码路由都准。
-- **极致的掌控感**：框架是死的，遇到 bug 你还要去修框架；土法里你是唯一的主人，让它吐什么，它就吐什么。
+- **Zero infrastructure cost.** No Python glue code, no environment setup, no fighting with proxies.
+- **The human brain is the fastest bus.** Eyes and intuition do "semantic alignment" and "filtering" between two models in a tenth of a second, more accurately than any router code.
+- **Total control.** A framework is dead weight — when it breaks you debug the framework. Here you are the only owner: ask for it and it comes out.
 
-你在里面只做三件事：**发散**（手机问「有哪几种做法」）→ **选择**（挑一条，说「就这条」）→ **搬运**（复制、粘贴、发给自己）。
+You do exactly three things: **diverge** (ask your phone "what are the possible approaches") → **choose** (pick one and say "that one") → **carry** (copy, paste, send to yourself).
 
-搬运是唯一不体面的部分，也是唯一不该心疼的——它只是你为「没有 API」付的过路费。**你搬的每一趟，都是在替自己做决定，不是替 AI 打工。**
+Carrying is the only undignified part, and the only one that should not bother you — it is the toll you pay for not having an API. **Every trip you carry is you making a decision, not you working for the AI.**
 
-土法能跑多远：单任务两百行以内的代码、单篇五千字以内的文稿，够用。再大就得上 API——不是因为它高级，是因为光搬运就吃掉你一半时间。**到那时再升级，而不是一上来就升级。**
+How far this scales: single tasks under ~200 lines of code, single documents under ~5,000 words. Beyond that, go to APIs — not because APIs are fancier, but because carrying alone eats half your day. **Upgrade then, not on day one.**
 
-完整链路、什么时候别这么干、五种传输方式的保真度，见 [PLAYBOOK 第 1 节](PLAYBOOK.md)。
-
----
-
-## 💡 三句口诀
-
-
-1. **提需求 ➔ AI-A 写 ➔ 人类转给 AI-B 骂 ➔ 人类裁决 ➔ AI-A 改 ➔ 独立盲测 ➔ 发版。**
-2. **最贵的算力用来找茬，最便宜的算力用来搬砖。**
-3. **人类是系统的总线，不是 AI 的复读机。**
-
-第一句是流程图，第二句是成本表，第三句是身份说明书。
+Full chain, when *not* to do this, and the fidelity of five transport methods: [PLAYBOOK §1](PLAYBOOK.md).
 
 ---
 
+## Three one-liners
 
-## 一句话说清这套东西
+1. **Ask → AI-A writes → human passes it to AI-B to attack → human judges → AI-A fixes → independent blind test → ship.**
+2. **Spend the most expensive compute on finding faults; spend the cheapest compute on carrying bricks.**
+3. **The human is the system bus, not the AI's parrot.**
 
-AI 已经能写代码、能写报告、能读财报，为什么人还没失业？
-
-因为**痛觉不可外包**。AI 不知道什么叫「这玩意儿在 A 股到底行不行」，它只会自信地给你一个夏普 0.71。而你知道这个 0.71 里有未来函数、有生存偏差、有没扣的交易成本。
-
-所以人的位置从「生产者」后移到了「提问者、路由者、裁决者」。剩下三件事，一件都不能交出去。
+The first is the flowchart, the second is the cost table, the third is the job description.
 
 ---
 
-## 这不是流水线，是循环
+## The whole thing in one paragraph
 
-**发散（做梦）→ 反思（找茬）→ 收敛（按快门）→ 迭代。**
+AI can already write code, write reports, and read financial statements. So why are people not unemployed?
 
-| 角色 | 稀缺的能力 | 绝对不能干的事 |
+Because **pain cannot be outsourced.** AI does not know what "does this actually work in A-shares" feels like; it will confidently hand you a Sharpe of 0.71. You are the one who knows that 0.71 contains look-ahead, survivorship bias, and uncharged transaction costs.
+
+So the human moved from "producer" to "asker, router, judge". The remaining three jobs cannot be delegated.
+
+---
+
+## This is not a pipeline, it is a loop
+
+**Diverge (dream) → Reflect (attack) → Converge (press the shutter) → Iterate.**
+
+| Role | Scarce ability | What it must never do |
 |---|---|---|
-| **AI-A 做梦** | **广度**：一次给十条路 | 自己判自己好不好 |
-| **AI-B 落地** | **深度**：盯住一个洞钻到底 | 讨好、鼓励、"整体来看不错" |
-| **人 按快门** | **选择权 + 责任** | 假装自己是中立裁判 |
+| **AI-A dreams** | **Breadth**: ten paths in one shot | Grade its own work |
+| **AI-B lands it** | **Depth**: pick one hole and drill through | Flatter, encourage, say "overall this looks good" |
+| **Human presses the shutter** | **Choice + responsibility** | Pretend to be a neutral judge |
 
-快门不创造光子，只决定**哪一瞬被记录下来**。底片是它们的，成片是你的。
+A shutter creates no photons; it only decides **which instant gets recorded**. The negatives are theirs; the print is yours.
 
-**按快门的两条硬标准**：失败用例全部转绿；剩下的分歧是风险偏好，不是缺陷。
+**Two hard criteria for pressing the shutter**: every failing case now passes; whatever disagreement remains is risk appetite, not a defect.
 
-**三条停止信号**：红队两轮没有新用例 / 批评开始重复 / 收益增量小于成本增量。
+**Three stop signals**: two rounds of red team with no new cases / criticism starts repeating / marginal gain below marginal cost.
 
-和 Reflexion 的差别只有一句：**反思不是自己对，是让另一个模型对**——躲开了自评放水，代价是「听懂了但改不对」。实测：弱红队 0 提升；强红队能把 7B 从 75% 拉到 96%，但拉不过它的天花板。
+The only difference from Reflexion is one sentence: **reflection is not you checking yourself, it is another model checking you** — that dodges self-grading leniency, at the price of "understood it but fixed it wrong". Measured: a weak red team adds nothing; a strong one can lift a 7B from 75% to 96%, but never past its own ceiling.
 
 ---
 
-## 五阶段：把土炉升级成高炉的路线
+## Five stages: the route from backyard furnace to blast furnace
 
-> 别把它当地基，把它当升级路线图——**土法跑不通之前，这五步对你毫无用处。**
+> Do not treat this as a foundation — treat it as an upgrade path. **Until the backyard version works, none of these five steps is useful to you.**
 
-### 🛠️ 一、基础设施：防「时空穿越」和「忘了前面」
+### 1. Infrastructure: prevent "time travel" and "forgetting what came before"
 
-- **动态 RAG**：模型知识是静止的，实时抓最新数据喂进去，防止它拿 2023 年的世界观聊 2026 年的市场。
-- **滑动压缩**：超长文本切片 + 摘要，保持输入纯净，别让上下文把模型喂傻。
-- **成本分层**：搬砖用便宜快的模型，审查用最聪明的模型。绝不拿大炮轰蚊子。
+- **Dynamic RAG**: model knowledge is frozen; feed it live data so it does not discuss the 2026 market with a 2023 worldview.
+- **Sliding compression**: slice and summarise long text so the context stays clean instead of drowning the model.
+- **Cost tiering**: cheap fast models for carrying bricks, the smartest model for review. Never use a cannon on a mosquito.
 
-### 🔄 二、初等矩阵：双 AI 互殴
+### 2. First-order matrix: two AIs fighting
 
-- **AI-1 包工头**：「你是顶尖的 XX 工程师」，只负责出方案、写代码。
-- **AI-2 红队**：「你是极度刻薄的找茬专家」，专治 AI 的讨好型人格。
-- **操作流**：AI-1 出 → 人复制 → AI-2 骂 → 人复制 → AI-1 改。
+- **AI-1 the contractor**: "you are a top-tier XX engineer" — only produces designs and code.
+- **AI-2 the red team**: "you are an extremely harsh fault-finder" — cures the AI's people-pleasing.
+- **Loop**: AI-1 outputs → human copies → AI-2 attacks → human copies → AI-1 fixes.
 
-**用不同厂家的 AI**：底座不同、训练数据不同，盲区才不同。同厂同款互殴，容易连环同错，还会互相夸。
+**Use different vendors.** Different base models and training data mean different blind spots. Same-vendor sparring tends to fail together and compliment each other.
 
-**各厂模型各擅长什么**：见 [模型岗位表.md](模型岗位表.md)。
+**What each family is good at**: see [model roles](模型岗位表.md).
 
-**写不出提示词怎么办**：让 AI 替你写——「我要解决 X，给我一段可以直接丢给别的 AI 的提示词」——拿到后粘给另一家。**不会提问，就让 AI 替你提问**，因为 AI 最懂 AI。
+**Cannot write prompts?** Have the AI write them: "I want to solve X, give me a prompt I can paste into another AI." Then paste it into a different vendor. **If you cannot ask, let the AI ask for you** — AI understands AI best.
 
-### 👑 三、人类介入：两个只属于人的权力
+### 3. Human intervention: two powers that are yours alone
 
-1. **随时打断**：两个 AI 开始车轱辘话，立刻拔网线，强行改方向。
-2. **最终拍板**：开一个全新的裁判 AI，只给测试用例，只回 `True` / `False`。
+1. **Interrupt at will.** When the two AIs start circling, pull the cable and change direction.
+2. **Final call.** Open a fresh judge AI, give it only the test cases, accept only `True` / `False`.
 
-「独立」不是换个标签页，是**换证据**——裁判只看产物和硬指标，不看解释、不看过程。
+"Independent" does not mean a new tab — it means **new evidence**. The judge sees artefacts and hard metrics, not explanations, not process.
 
-### 🏢 四、进阶矩阵：四组隔离
+### 4. Advanced matrix: four isolated groups
 
-当互殴太累、太耗 Token，就拆成四个互不相见的组：
+When sparring gets tiring and token-expensive, split into four groups that never see each other:
 
-| 组 | 用什么模型 | 干什么 |
+| Group | Model | Job |
 |---|---|---|
-| 执行组 | 便宜模型 | 不带历史，只按指令搬砖 |
-| 风控组 | 强推理模型 | 只审查，只挑毛病 |
-| 秘书组 | 长文本模型 | 把几万字对骂压成两百字战报 |
-| 裁判组 | 独立 AI | 不看过程，只跑用例出真假 |
+| Execution | cheap model | no history, just follow instructions |
+| Risk control | strong-reasoning model | review only, find faults only |
+| Secretariat | long-context model | compress tens of thousands of words of argument into a 200-word brief |
+| Judge | isolated AI | ignore the process, run the cases, return pass/fail |
 
-**升级信号**：不是你被 Token 账单吓到，而是你开始「替 AI 总结」的那一刻——那说明搬运工已经累了。
+**Upgrade signal**: not the token bill scaring you, but the moment you start "summarising for the AI" — that means the carrier is tired.
 
-### 📦 五、落地：脱敏发布，开源图纸
+### 5. Landing: sanitise and publish, open-source the blueprint
 
-- **脱敏**：删掉核心参数、核心提示词、实盘接口。
-- **开源**：架构图、SOP、大白话说明书。用「诱捕器」筛出能死磕底层的同类。
-
----
-
-## 反方：这套 SOP 的三个失效点
-
-1. **搬运会先累死人**。开到第十轮，你会把三条批评压成一条，然后漏掉最关键的。对策：只搬「结论 + 证据 + 下一步」。
-2. **对抗会退化成表演**。红队只会说「有未来函数」「PBO 爆表」，蓝方三天就学会绕开说辞。红队必须给**可执行的检验**。
-3. **裁判若与红队同源，隔离失效**。同一个底座换个窗口，共享同一套盲区。
+- **Sanitise**: remove core parameters, core prompts, live trading interfaces.
+- **Open-source**: architecture diagram, SOP, plain-language manual. Use it as a lure to find people who will grind on fundamentals with you.
 
 ---
 
-## 三大定律
+## Counter-arguments: three failure modes of this SOP
 
-- **痛觉驱动律**：AI 没有痛觉，它不知道什么是绝望，所以想不出真正有价值的痛点。你有多痛，想法就有多深。
-- **双核对对抗律**：永远不要相信单个 AI 的标准答案。它们吵得越凶，你得到的代码越干净。
-- **人类路由律**：你不需要懂 Python、C++、矩阵，你只需要掌控图纸。
+1. **Carrying exhausts the human first.** By round ten you will compress three criticisms into one and drop the most important. Fix: only carry "conclusion + evidence + next step".
+2. **Adversarial review degenerates into theatre.** The red team only says "look-ahead bias" and "PBO will explode"; the blue side learns to dodge the words in three days. The red team must produce **executable checks**.
+3. **If the judge shares the red team's base model, isolation fails.** Same weights, different window — same blind spots.
 
 ---
 
-## 想要到「可操作」的那一层？
+## Three laws
 
-这份 README 讲的是**为什么**和**分几步**。角色卡、搬运模板、战报格式、何时升级、一次真实的失败记录，在 **[PLAYBOOK.md](PLAYBOOK.md)**。
+- **Pain-driven genesis.** AI feels no pain, does not know despair, and therefore cannot invent genuinely valuable pain points. The deeper your pain, the deeper the idea.
+- **Adversarial dual-core.** Never trust a single AI's "standard answer". The harder they fight, the cleaner your code.
+- **Human routing.** You do not need Python, C++, or matrix algebra — you only need to own the blueprint.
 
-还有一节是 **AI 自己写的**——它怎么想、怎么犯错的、什么时候该停（PLAYBOOK §1.3）。那一节比我写的任何一句都更该被你的红队读。
+---
 
-## 许可
+## Want the operational layer?
 
-MIT。随便改，改完记得回来骂我。
+This README covers **why** and **in how many steps**. Role cards, carrying templates, brief formats, when to upgrade, and one honest failure log live in **[PLAYBOOK.md](PLAYBOOK.md)**.
+
+One section was **written by the AI itself** — how it thinks, how it fails, when it should stop (PLAYBOOK §1.3). That section deserves your red team's attention more than anything I wrote.
+
+## License
+
+MIT. Fork it freely — and come back to tell me what I got wrong.
