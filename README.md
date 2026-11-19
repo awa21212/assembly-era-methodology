@@ -88,7 +88,7 @@ The only difference from Reflexion is one sentence: **reflection is not you chec
 
 **Use different vendors.** Different base models and training data mean different blind spots. Same-vendor sparring tends to fail together and compliment each other.
 
-**What each family is good at**: see [model roles](模型岗位表.md).
+**What each family is good at**: see [model roles](model-roles.md).
 
 **Cannot write prompts?** Have the AI write them: "I want to solve X, give me a prompt I can paste into another AI." Then paste it into a different vendor. **If you cannot ask, let the AI ask for you** — AI understands AI best.
 
