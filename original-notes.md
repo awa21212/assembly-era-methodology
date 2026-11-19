@@ -1,3 +1,5 @@
+> **Note:** this file keeps the original Chinese working notes. The main README and PLAYBOOK are in English.
+
 # 原始笔记（手机备忘录原文）
 
 > 三张截图的转写。除明显的手机输入法错字保持原样外，未改动内容。
