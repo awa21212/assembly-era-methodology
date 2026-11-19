@@ -1,3 +1,5 @@
+> **Note:** this file keeps the original Chinese working notes. The main README and PLAYBOOK are in English.
+
 # 极限测试：GLM-5.3 vs qwen3.8-max（2026-11-11）
 
 ## 为什么要做
